@@ -4,15 +4,30 @@
 
 每个 Skill 自包含在 `skills/<skill-name>/` 目录下，至少含一个 `SKILL.md`，可选 `references/`（按需深读的参考材料）、`assets/`（静态资源/可视化模板）、`scripts/`（辅助脚本）。组织形式参考 [anthropics/skills](https://github.com/anthropics/skills)。
 
+## 安装（Claude Code）
+
+把本仓库注册为 Plugin Marketplace，再装 `pz-skills` 这个 plugin（自动包含其中所有 skill）：
+
+```
+/plugin marketplace add zhongkai/pz-skills
+/plugin install pz-skills@pz-skills
+```
+
+之后在任何 Claude Code 会话里直接说「我想学 xxx」即可命中 `xuexiqu`。后续仓库新增 skill，`/plugin update` 就能拉到。
+
+也可以手动安装（不走 marketplace）：把 `skills/xuexiqu` 软链到 `~/.claude/skills/xuexiqu` 即可。
+
 ## 目录结构
 
 ```
 pz-skills/
-├── README.md          # 本文件
+├── README.md
+├── .claude-plugin/
+│   └── marketplace.json    # Claude Code Plugin Marketplace 元数据
 ├── template/
-│   └── SKILL.md       # 新 Skill 的起始模板
+│   └── SKILL.md            # 新 Skill 的起始模板
 └── skills/
-    └── xuexiqu/       # 学习区 —— 维果茨基 ZPD 理论驱动的 AI 学习教练
+    └── xuexiqu/            # 学习区 —— 维果茨基 ZPD 理论驱动的 AI 学习教练
         ├── SKILL.md
         ├── references/
         │   └── theory.md

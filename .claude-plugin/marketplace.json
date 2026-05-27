@@ -1,0 +1,22 @@
+{
+  "name": "pz-skills",
+  "owner": {
+    "name": "Stefan",
+    "email": "kaizhongfan@gmail.com"
+  },
+  "metadata": {
+    "description": "Skill-form AI products built around mental models — by Stefan (胖总).",
+    "version": "0.1.0"
+  },
+  "plugins": [
+    {
+      "name": "pz-skills",
+      "description": "All skills in this repo. Currently includes xuexiqu (Vygotsky ZPD-based dialogue learning coach).",
+      "source": "./",
+      "strict": false,
+      "skills": [
+        "./skills/xuexiqu"
+      ]
+    }
+  ]
+}
