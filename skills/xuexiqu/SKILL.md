@@ -149,7 +149,20 @@ description: 对话式 AI 学习教练，基于维果茨基「最近发展区 (Z
 - **填充模板**：`assets/progress.svg`，把 `{{TOPIC}}` 与 `{{CELLS}}` 区域替换为各格。`done` 用实心，`current` 高亮+脉冲，`locked` 灰阶。
 - **关键**：每进阶一次点亮一格，给即时正反馈。
 
-> 渲染方式：在支持 `show_widget` 的客户端（Cowork / Claude 桌面端）通过 SVG 内联渲染。如客户端不支持，退化为文字版同心圆/进度描述，不要因为画不出图就跳过这一节点。
+### 渲染与降级
+
+按客户端能力，按下面优先级选择渲染方式（**永远不要因为画不出图就跳过该节点**）：
+
+1. **支持 `show_widget` 的客户端（Cowork / Claude 桌面端）**：把填好的 SVG 通过 `show_widget` 内联渲染。
+2. **支持 artifact 的客户端（Claude.ai / Claude Desktop）**：把 SVG 作为 artifact 输出，自动渲染。
+3. **CLI 客户端（Claude Code 等无图形渲染能力的环境）—— 强制走文件落盘 + 自动打开**：
+   - 读取 `assets/zone-map.svg` 或 `assets/progress.svg` 作为模板，做占位符替换得到最终 SVG。
+   - 写入路径：`/tmp/xuexiqu/<view>-<UTC-timestamp>.svg`（`<view>` 取 `zone-map` 或 `progress`）。落盘前确保 `/tmp/xuexiqu/` 目录存在（`mkdir -p`）。
+   - 在 Bash 里执行 `open <path>`（macOS）或 `xdg-open <path>`（Linux），让系统默认应用（通常是浏览器）渲染。
+   - 在对话里**显式告诉用户**这个文件路径，方便他后续直接打开或分享。
+4. **任何客户端都失败时的最后兜底**：用 ASCII / Mermaid 输出文字版同心圆或进度条，宁可丑也别省。
+
+无论走哪条路径，可视化触发时机都不变：阶段 B 完成定位时、阶段 E 每次进阶时。
 
 ## 7. 语气与节奏
 
