@@ -1,0 +1,123 @@
+<!--
+  Pyramid Template — 金字塔三层结构图
+  ============================================
+  基于 Barbara Minto 金字塔原理
+  运行时填充：
+    {{SCENE}}           场景一句话（如：给老板汇报本季度预算调整）
+    {{TIP}}             塔尖（动词开头一句话）
+    {{GROUPING_BADGE}}  分组方式徽章（按时间/按结构/按重要性/其他）
+    {{REASON_1_LABEL}}, {{REASON_1_EVIDENCE}} ... 最多 4 组
+                        如果只有 2-3 个理由，把多余的 reason 块隐藏（display="none"）
+                        evidence 多条用 \n 分隔（运行时拆成多行 tspan）
+
+  视觉约定：上小下大，理由层等宽
+-->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 720" width="100%" font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif">
+
+  <!-- 背景 -->
+  <rect width="1100" height="720" fill="#fafaf9"/>
+
+  <!-- 标题 -->
+  <text x="550" y="44" text-anchor="middle" font-size="22" font-weight="600" fill="#1c1917">
+    金字塔结构 · 先给答案，再分组讲原因
+  </text>
+  <text x="550" y="68" text-anchor="middle" font-size="13" fill="#78716c">
+    场景 · {{SCENE}}
+  </text>
+
+  <!-- 分组徽章 -->
+  <g transform="translate(890 88)">
+    <rect width="180" height="28" rx="14" fill="#fef3c7" stroke="#fbbf24"/>
+    <text x="90" y="18" text-anchor="middle" font-size="12" font-weight="600" fill="#92400e">
+      分组：{{GROUPING_BADGE}}
+    </text>
+  </g>
+
+  <!-- 塔尖 -->
+  <g transform="translate(550 130)">
+    <polygon points="-180,90 180,90 0,0" fill="#16a34a" stroke="#15803d" stroke-width="2"/>
+    <text y="60" text-anchor="middle" font-size="14" font-weight="700" fill="#ffffff">塔尖 · 我最想让对方做的事</text>
+    <text y="120" text-anchor="middle" font-size="14" font-weight="600" fill="#1c1917">
+      <tspan x="0" dy="0">{{TIP}}</tspan>
+    </text>
+  </g>
+
+  <!-- 理由层（最多 4 个，按 reasons 数组长度自适应；2 个用 mid-2，3 个用 mid-3，4 个用 mid-4） -->
+  <!-- 这里给 4 列布局；运行时若少于 4 个理由，把不需要的列设 display="none" -->
+
+  <g id="reason-1" transform="translate(95 320)">
+    <rect width="220" height="100" rx="10" fill="#dbeafe" stroke="#2563eb" stroke-width="2"/>
+    <text x="110" y="32" text-anchor="middle" font-size="13" font-weight="700" fill="#1e3a8a">理由 1</text>
+    <text x="110" y="58" text-anchor="middle" font-size="13" fill="#1e3a8a">
+      <tspan x="110" dy="0">{{REASON_1_LABEL}}</tspan>
+    </text>
+  </g>
+  <g id="evidence-1" transform="translate(95 440)">
+    <rect width="220" height="120" rx="10" fill="#f5f5f4" stroke="#d6d3d1" stroke-width="1"/>
+    <text x="110" y="28" text-anchor="middle" font-size="11" font-weight="600" fill="#57534e">证据</text>
+    <text x="110" y="50" text-anchor="middle" font-size="11" fill="#44403c">
+      <tspan x="110" dy="0">{{REASON_1_EVIDENCE}}</tspan>
+    </text>
+  </g>
+
+  <g id="reason-2" transform="translate(345 320)">
+    <rect width="220" height="100" rx="10" fill="#dbeafe" stroke="#2563eb" stroke-width="2"/>
+    <text x="110" y="32" text-anchor="middle" font-size="13" font-weight="700" fill="#1e3a8a">理由 2</text>
+    <text x="110" y="58" text-anchor="middle" font-size="13" fill="#1e3a8a">
+      <tspan x="110" dy="0">{{REASON_2_LABEL}}</tspan>
+    </text>
+  </g>
+  <g id="evidence-2" transform="translate(345 440)">
+    <rect width="220" height="120" rx="10" fill="#f5f5f4" stroke="#d6d3d1" stroke-width="1"/>
+    <text x="110" y="28" text-anchor="middle" font-size="11" font-weight="600" fill="#57534e">证据</text>
+    <text x="110" y="50" text-anchor="middle" font-size="11" fill="#44403c">
+      <tspan x="110" dy="0">{{REASON_2_EVIDENCE}}</tspan>
+    </text>
+  </g>
+
+  <g id="reason-3" transform="translate(595 320)">
+    <rect width="220" height="100" rx="10" fill="#dbeafe" stroke="#2563eb" stroke-width="2"/>
+    <text x="110" y="32" text-anchor="middle" font-size="13" font-weight="700" fill="#1e3a8a">理由 3</text>
+    <text x="110" y="58" text-anchor="middle" font-size="13" fill="#1e3a8a">
+      <tspan x="110" dy="0">{{REASON_3_LABEL}}</tspan>
+    </text>
+  </g>
+  <g id="evidence-3" transform="translate(595 440)">
+    <rect width="220" height="120" rx="10" fill="#f5f5f4" stroke="#d6d3d1" stroke-width="1"/>
+    <text x="110" y="28" text-anchor="middle" font-size="11" font-weight="600" fill="#57534e">证据</text>
+    <text x="110" y="50" text-anchor="middle" font-size="11" fill="#44403c">
+      <tspan x="110" dy="0">{{REASON_3_EVIDENCE}}</tspan>
+    </text>
+  </g>
+
+  <g id="reason-4" transform="translate(845 320)">
+    <rect width="220" height="100" rx="10" fill="#dbeafe" stroke="#2563eb" stroke-width="2"/>
+    <text x="110" y="32" text-anchor="middle" font-size="13" font-weight="700" fill="#1e3a8a">理由 4</text>
+    <text x="110" y="58" text-anchor="middle" font-size="13" fill="#1e3a8a">
+      <tspan x="110" dy="0">{{REASON_4_LABEL}}</tspan>
+    </text>
+  </g>
+  <g id="evidence-4" transform="translate(845 440)">
+    <rect width="220" height="120" rx="10" fill="#f5f5f4" stroke="#d6d3d1" stroke-width="1"/>
+    <text x="110" y="28" text-anchor="middle" font-size="11" font-weight="600" fill="#57534e">证据</text>
+    <text x="110" y="50" text-anchor="middle" font-size="11" fill="#44403c">
+      <tspan x="110" dy="0">{{REASON_4_EVIDENCE}}</tspan>
+    </text>
+  </g>
+
+  <!-- 连线（塔尖 → 各理由） -->
+  <g stroke="#86efac" stroke-width="1.5" fill="none">
+    <path d="M 550 250 L 205 320"/>
+    <path d="M 550 250 L 455 320"/>
+    <path d="M 550 250 L 705 320"/>
+    <path d="M 550 250 L 955 320"/>
+  </g>
+
+  <!-- 底部四问自检 -->
+  <g transform="translate(70 600)">
+    <rect width="960" height="92" rx="10" fill="#fffbeb" stroke="#fbbf24" stroke-width="1"/>
+    <text x="20" y="24" font-size="12" font-weight="700" fill="#92400e">30 秒四问自检</text>
+    <text x="20" y="46" font-size="11" fill="#78350f">① 最想说的一句话有没有放在最前面？　② 理由是 2–4 个吗？（超过 5 就太多）</text>
+    <text x="20" y="64" font-size="11" fill="#78350f">③ 这几个理由是并列的同类项吗？　④ 每个理由下面有没有可以拿出来的证据？</text>
+  </g>
+</svg>

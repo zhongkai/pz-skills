@@ -11,11 +11,13 @@
   "plugins": [
     {
       "name": "pz-skills",
-      "description": "All skills in this repo. Currently includes xuexiqu (Vygotsky ZPD-based dialogue learning coach).",
+      "description": "All skills in this repo. Currently includes xuexiqu (Vygotsky ZPD-based learning coach), kanjianzj (metacognition + affect labeling + triune brain emotional companion), and jinzita (Pyramid Principle + MECE + SCQA structured-expression coach).",
       "source": "./",
       "strict": false,
       "skills": [
-        "./skills/xuexiqu"
+        "./skills/xuexiqu",
+        "./skills/kanjianzj",
+        "./skills/jinzita"
       ]
     }
   ]

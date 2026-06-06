@@ -41,6 +41,8 @@ pz-skills/
 | 名称 | 心智模型 | 一句话定义 |
 |---|---|---|
 | [xuexiqu](./skills/xuexiqu) | 维果茨基「最近发展区 / 学习区」 | 对话式 AI 学习教练：定位你的学习区，小步教学，内化后螺旋上升。 |
+| [kanjianzj](./skills/kanjianzj) | 元认知 × 情绪命名（affect labeling）× 三重大脑 | 对话式情绪与拖延陪伴教练：先接住、再命名情绪、定位是哪个脑在开车，最后给一件最小可行的下一步。 |
+| [jinzita](./skills/jinzita) | 金字塔结构（结论先行）× MECE × SCQA | 对话式结构化表达教练：抓塔尖、MECE 分组、SCQA 设计开头、四问自检。让你写汇报/提案/小红书时被秒懂。 |
 
 ## 新增 Skill 的步骤
 

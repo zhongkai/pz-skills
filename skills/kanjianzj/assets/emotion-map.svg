@@ -1,0 +1,76 @@
+<!--
+  Emotion Map Template — 情绪命名三层同心圆
+  ============================================
+  基于 affect labeling 神经机制（Lieberman et al., 2007）
+  运行时填充：
+    {{TRIGGER}}   引发情绪的具体场景，一句话
+    {{COARSE}}    粗颗粒情绪（烦/不开心/怕/累/空 之一）
+    {{FINE}}      细颗粒情绪组合，每行一条 <tspan x="500" dy="1.4em">…</tspan>
+                  最多 3 条；用户认下的复合情绪如「失望 + 一点羞愧」
+    {{SOURCE}}    追溯到的源头（"担心被否定"），未追溯时填「待探索」
+
+  视觉约定：
+    - 内环（粗颗粒）= 入口；中环（细颗粒）= 视觉最突出；外环（源头）= 深层
+    - 调性：温柔不冰冷，颜色用暖色（米色/淡橘/淡紫），不用警示色
+-->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 720" width="100%" font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif">
+
+  <!-- 背景 -->
+  <rect width="1000" height="720" fill="#fdfaf6"/>
+
+  <!-- 标题 -->
+  <text x="500" y="48" text-anchor="middle" font-size="22" font-weight="600" fill="#1c1917">
+    情绪命名地图 · 看见你刚才发生的事
+  </text>
+  <text x="500" y="74" text-anchor="middle" font-size="13" fill="#78716c">
+    引发场景 · {{TRIGGER}}
+  </text>
+  <text x="500" y="94" text-anchor="middle" font-size="11" fill="#a8a29e">
+    粗颗粒（先承认） → 细颗粒（精准接住） → 源头（看见在害怕什么）
+  </text>
+
+  <!-- 三层同心圆 -->
+  <g transform="translate(500 400)">
+    <!-- 源头层（外） -->
+    <circle r="290" fill="#ede9fe" stroke="#c4b5fd" stroke-width="1.5"/>
+    <!-- 细颗粒层（中） —— 视觉最突出 -->
+    <circle r="200" fill="#ffedd5" stroke="#fb923c" stroke-width="3"/>
+    <!-- 粗颗粒（内） -->
+    <circle r="110" fill="#fef3c7" stroke="#fbbf24" stroke-width="1.5"/>
+
+    <!-- 「我在这里看见自己」标记 -->
+    <g transform="translate(0 -155)">
+      <circle r="9" fill="#fb923c"/>
+      <circle r="9" fill="#fb923c" opacity="0.4">
+        <animate attributeName="r" values="9;18;9" dur="1.8s" repeatCount="indefinite"/>
+        <animate attributeName="opacity" values="0.4;0;0.4" dur="1.8s" repeatCount="indefinite"/>
+      </circle>
+      <text y="-16" text-anchor="middle" font-size="12" font-weight="600" fill="#c2410c">我看见你了</text>
+    </g>
+  </g>
+
+  <!-- 标签：源头层 -->
+  <text x="500" y="135" text-anchor="middle" font-size="13" font-weight="600" fill="#6b21a8">源头（你在害怕/失去什么）</text>
+  <text x="500" y="155" text-anchor="middle" font-size="12" fill="#7c3aed">
+    <tspan x="500" dy="0">{{SOURCE}}</tspan>
+  </text>
+
+  <!-- 标签：细颗粒（中环） -->
+  <text x="500" y="240" text-anchor="middle" font-size="15" font-weight="700" fill="#9a3412">细颗粒命名</text>
+  <text x="500" y="262" text-anchor="middle" font-size="13" font-weight="500" fill="#7c2d12">
+    <tspan x="500" dy="0">{{FINE}}</tspan>
+  </text>
+
+  <!-- 标签：粗颗粒（内环） -->
+  <text x="500" y="395" text-anchor="middle" font-size="13" font-weight="600" fill="#92400e">粗颗粒</text>
+  <text x="500" y="415" text-anchor="middle" font-size="14" font-weight="500" fill="#78350f">
+    <tspan x="500" dy="0">{{COARSE}}</tspan>
+  </text>
+
+  <!-- 底部口诀 -->
+  <g transform="translate(0 670)" text-anchor="middle">
+    <text x="500" y="0" font-size="13" font-style="italic" fill="#57534e">
+      观察而不评判，好奇而不苛责。仅仅是「给情绪一个名字」，你就重新夺回了方向盘。
+    </text>
+  </g>
+</svg>

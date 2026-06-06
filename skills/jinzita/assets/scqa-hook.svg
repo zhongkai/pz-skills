@@ -1,0 +1,95 @@
+<!--
+  SCQA Hook Template — SCQA 开头钩子图
+  ============================================
+  基于 Barbara Minto 金字塔原理 SCQA 框架
+  运行时填充：
+    {{FRAMEWORK_BADGE}}  框架名（标准 SCQA / 开门见山 ASC / 突出担忧 CSA / 小红书 XHS）
+    {{S}}, {{C}}, {{Q}}, {{A}}  各自的具体内容（用户语境里的话，不是模板字）
+
+  根据 framework，未用到的色块可设置 opacity="0.25"。
+
+  视觉约定：横向 4 步流转，箭头串起，A 用强调色（绿）。
+-->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 540" width="100%" font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif">
+
+  <!-- 背景 -->
+  <rect width="1100" height="540" fill="#fafaf9"/>
+
+  <!-- 标题 -->
+  <text x="550" y="44" text-anchor="middle" font-size="22" font-weight="600" fill="#1c1917">
+    SCQA 开头钩子 · 让对方愿意听完第一句
+  </text>
+
+  <!-- 框架徽章 -->
+  <g transform="translate(450 64)">
+    <rect width="200" height="28" rx="14" fill="#dbeafe" stroke="#2563eb"/>
+    <text x="100" y="18" text-anchor="middle" font-size="12" font-weight="600" fill="#1e3a8a">
+      框架：{{FRAMEWORK_BADGE}}
+    </text>
+  </g>
+
+  <!-- 四个方块（S / C / Q / A） -->
+
+  <!-- S Situation -->
+  <g id="block-S" transform="translate(40 130)">
+    <rect width="240" height="280" rx="12" fill="#fef3c7" stroke="#f59e0b" stroke-width="2"/>
+    <text x="120" y="40" text-anchor="middle" font-size="15" font-weight="700" fill="#92400e">S · 情境</text>
+    <text x="120" y="62" text-anchor="middle" font-size="11" fill="#a16207">大家都知道的背景</text>
+    <line x1="20" y1="80" x2="220" y2="80" stroke="#fbbf24" stroke-dasharray="3 3"/>
+    <text x="120" y="110" text-anchor="middle" font-size="13" fill="#78350f">
+      <tspan x="120" dy="0">{{S}}</tspan>
+    </text>
+  </g>
+
+  <!-- C Complication -->
+  <g id="block-C" transform="translate(305 130)">
+    <rect width="240" height="280" rx="12" fill="#fee2e2" stroke="#dc2626" stroke-width="2"/>
+    <text x="120" y="40" text-anchor="middle" font-size="15" font-weight="700" fill="#991b1b">C · 冲突</text>
+    <text x="120" y="62" text-anchor="middle" font-size="11" fill="#dc2626">发生了什么变化（钩子）</text>
+    <line x1="20" y1="80" x2="220" y2="80" stroke="#ef4444" stroke-dasharray="3 3"/>
+    <text x="120" y="110" text-anchor="middle" font-size="13" fill="#7f1d1d">
+      <tspan x="120" dy="0">{{C}}</tspan>
+    </text>
+  </g>
+
+  <!-- Q Question -->
+  <g id="block-Q" transform="translate(570 130)">
+    <rect width="240" height="280" rx="12" fill="#ede9fe" stroke="#7c3aed" stroke-width="2"/>
+    <text x="120" y="40" text-anchor="middle" font-size="15" font-weight="700" fill="#5b21b6">Q · 疑问</text>
+    <text x="120" y="62" text-anchor="middle" font-size="11" fill="#6d28d9">那现在怎么办？</text>
+    <line x1="20" y1="80" x2="220" y2="80" stroke="#8b5cf6" stroke-dasharray="3 3"/>
+    <text x="120" y="110" text-anchor="middle" font-size="13" fill="#4c1d95">
+      <tspan x="120" dy="0">{{Q}}</tspan>
+    </text>
+  </g>
+
+  <!-- A Answer -->
+  <g id="block-A" transform="translate(835 130)">
+    <rect width="240" height="280" rx="12" fill="#dcfce7" stroke="#16a34a" stroke-width="3"/>
+    <text x="120" y="40" text-anchor="middle" font-size="15" font-weight="700" fill="#14532d">A · 答案</text>
+    <text x="120" y="62" text-anchor="middle" font-size="11" fill="#15803d">塔尖 · 我的建议是</text>
+    <line x1="20" y1="80" x2="220" y2="80" stroke="#22c55e" stroke-dasharray="3 3"/>
+    <text x="120" y="110" text-anchor="middle" font-size="13" font-weight="600" fill="#14532d">
+      <tspan x="120" dy="0">{{A}}</tspan>
+    </text>
+  </g>
+
+  <!-- 箭头连接 S→C→Q→A -->
+  <g stroke="#a8a29e" stroke-width="2" fill="none" marker-end="url(#arrow)">
+    <line x1="282" y1="270" x2="303" y2="270"/>
+    <line x1="547" y1="270" x2="568" y2="270"/>
+    <line x1="812" y1="270" x2="833" y2="270"/>
+  </g>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#a8a29e"/>
+    </marker>
+  </defs>
+
+  <!-- 底部警示 -->
+  <g transform="translate(70 440)">
+    <rect width="960" height="76" rx="10" fill="#fffbeb" stroke="#fbbf24" stroke-width="1"/>
+    <text x="20" y="24" font-size="12" font-weight="700" fill="#92400e">⚠ 别把 SCQA 用成 PUA</text>
+    <text x="20" y="46" font-size="11" fill="#78350f">冲突要真实存在，答案要经得起推敲。结构是帮你更好地表达真相，不是更好地掩盖真相。</text>
+  </g>
+</svg>
