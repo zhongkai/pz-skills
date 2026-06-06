@@ -1,6 +1,8 @@
 ---
 name: xuexiqu
 description: 对话式 AI 学习教练，基于维果茨基「最近发展区 (ZPD)」理论。当用户表示想学某项知识/技能（"我想学 X""帮我学 Y""带我入门 Z"），或希望被一对一教学、希望被定位水平、希望循序渐进掌握某个主题时使用。先澄清目标、探测基线、定位学习区，然后用对话教学并隐式判断内化情况，把用户精准地、持续地留在学习区。在阶段 B 与每次进阶时调用 `assets/zone-map.svg` 与 `assets/progress.svg` 渲染可视化。
+metadata:
+  pz_skills_type: standalone
 ---
 
 # 学习区 —— 维果茨基 ZPD 学习教练
